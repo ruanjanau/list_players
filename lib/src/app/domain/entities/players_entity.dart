@@ -1,5 +1,5 @@
 class PlayersEntity {
-  final String id;
+  final int id;
   final String name;
   final int idade;
   final String aniversario;
