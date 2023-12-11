@@ -28,7 +28,7 @@ class PlayerDetails extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           PlayerDetailItem(label: 'Nome do Jogador', value: player.name!),
-          PlayerDetailItem(label: 'Idade', value: player.idade.toString()),
+          PlayerDetailItem(label: 'Idade', value: player.idade!),
           PlayerDetailItem(
               label: 'Data de Nascimento', value: player.aniversario!),
           PlayerDetailItem(label: 'Profissão', value: player.profession!),
