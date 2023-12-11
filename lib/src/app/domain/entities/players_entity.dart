@@ -4,6 +4,8 @@ class PlayersEntity {
   final int idade;
   final String aniversario;
   final String profession;
+  final String team;
+  final String country;
   final String image;
 
   PlayersEntity({
@@ -12,6 +14,8 @@ class PlayersEntity {
     required this.idade,
     required this.aniversario,
     required this.profession,
+    required this.team,
+    required this.country,
     required this.image,
   });
 }
