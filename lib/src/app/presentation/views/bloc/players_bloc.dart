@@ -22,7 +22,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
       emit(PlayersState.loading());
       final players = await _dataSource.getPlayers();
       await Future.delayed(const Duration(seconds: 2));
-
+      // throw Exception();
       emit(PlayersState.data(players: players));
     } catch (e) {
       emit(PlayersState.error(error: 'Error loading players'));
