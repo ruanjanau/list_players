@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../players.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,11 +8,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const PlayersPage()));
-            },
-            child: const Text('Ver Lista de Players')),
+          onPressed: () {
+            Navigator.of(context).pushNamed(
+              '/bloc/players/',
+            );
+          },
+          child: const Text('Ver Lista de Players'),
+        ),
       ),
     );
   }
