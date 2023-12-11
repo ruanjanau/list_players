@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:list_players/src/app/data/datasources/datasource.dart';
@@ -18,7 +16,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
     on<_PlayersEventFindAll>(_findAll);
   }
 
-  FutureOr<void> _findAll(
+  Future<void> _findAll(
       _PlayersEventFindAll event, Emitter<PlayersState> emit) async {
     try {
       emit(PlayersState.loading());

@@ -87,7 +87,7 @@ class __$$PlayersEventFindAllImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlayersEventFindAllImpl implements _PlayersEventFindAll {
-  _$PlayersEventFindAllImpl();
+  const _$PlayersEventFindAllImpl();
 
   @override
   String toString() {
@@ -162,7 +162,7 @@ class _$PlayersEventFindAllImpl implements _PlayersEventFindAll {
 }
 
 abstract class _PlayersEventFindAll implements PlayersEvent {
-  factory _PlayersEventFindAll() = _$PlayersEventFindAllImpl;
+  const factory _PlayersEventFindAll() = _$PlayersEventFindAllImpl;
 }
 
 /// @nodoc
