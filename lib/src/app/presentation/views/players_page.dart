@@ -45,8 +45,7 @@ class PlayersPage extends StatelessWidget {
           builder: (_, players) {
             if (players.isEmpty) {
               return const Center(
-                child:
-                    CircularProgressIndicator(), // Adicione um indicador de carregamento aqui
+                child: CircularProgressIndicator(),
               );
             } else {
               return ListView.builder(
