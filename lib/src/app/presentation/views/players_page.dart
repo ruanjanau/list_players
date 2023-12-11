@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:list_players/src/app/data/models/model.dart';
+import 'package:list_players/src/app/presentation/components/players_tile.dart';
+import 'package:list_players/src/app/presentation/views/bloc/players_bloc.dart';
 
 class PlayersPage extends StatelessWidget {
   const PlayersPage({super.key});
@@ -9,7 +13,61 @@ class PlayersPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Players'),
       ),
-      body: Container(),
+      body: BlocListener<PlayersBloc, PlayersState>(
+        listenWhen: (previous, current) {
+          return current.maybeWhen(
+            error: (error) => true,
+            orElse: () => false,
+          );
+        },
+        listener: (context, state) {
+          state.whenOrNull(error: (error) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  error,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                backgroundColor: Colors.red,
+              ),
+            );
+          });
+        },
+        child: BlocSelector<PlayersBloc, PlayersState, List<PlayersModel>>(
+          selector: (state) {
+            return state.maybeWhen(
+              data: (players) => players,
+              orElse: () => [],
+            );
+          },
+          builder: (_, players) {
+            if (players.isEmpty) {
+              return const Center(
+                child:
+                    CircularProgressIndicator(), // Adicione um indicador de carregamento aqui
+              );
+            } else {
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: players.length,
+                itemBuilder: (context, index) {
+                  final player = players[index];
+                  return GestureDetector(
+                    onTap: () {},
+                    child: PlayersTile(
+                      name: player.name!,
+                      profession: player.profession!,
+                      image: player.image!,
+                    ),
+                  );
+                },
+              );
+            }
+          },
+        ),
+      ),
     );
   }
 }
