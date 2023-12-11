@@ -6,6 +6,8 @@ class PlayersModel {
   final int? idade;
   final String? aniversario;
   final String? profession;
+  final String? team;
+  final String? country;
   final String? image;
 
   PlayersModel({
@@ -14,6 +16,8 @@ class PlayersModel {
     this.idade,
     this.aniversario,
     this.profession,
+    this.team,
+    this.country,
     this.image,
   });
 
@@ -24,6 +28,8 @@ class PlayersModel {
       idade: map['idade']?.toInt(),
       aniversario: map['aniversario'] ?? '',
       profession: map['profession'] ?? '',
+      team: map['team'] ?? '',
+      country: map['country'] ?? '',
       image: map['image'] ?? '',
     );
   }
@@ -35,6 +41,8 @@ class PlayersModel {
       idade: idade ?? 0,
       aniversario: aniversario ?? '',
       profession: profession ?? '',
+      team: team ?? '',
+      country: country ?? '',
       image: image ?? '',
     );
   }
