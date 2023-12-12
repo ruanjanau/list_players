@@ -61,10 +61,13 @@ class PlayersPage extends StatelessWidget {
                         arguments: player,
                       );
                     },
-                    child: PlayersTile(
-                      name: player.name!,
-                      profession: player.profession!,
-                      image: player.image!,
+                    child: Hero(
+                      tag: player.id!,
+                      child: PlayersTile(
+                        name: player.name!,
+                        profession: player.profession!,
+                        image: player.image!,
+                      ),
                     ),
                   );
                 },
