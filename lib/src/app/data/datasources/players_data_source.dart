@@ -15,7 +15,7 @@ class PlayersDataSource implements IPlayersDataSource {
   FutureOr<List<PlayersModel>> getPlayers() async {
     final response =
         await dio.get('https://6573803a063f876cec9cf9f6.mockapi.io/users/');
-
+        
     return (response.data as List).map(PlayersModel.fromJson).toList();
   }
 }
